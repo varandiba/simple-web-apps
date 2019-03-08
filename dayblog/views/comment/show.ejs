@@ -1,0 +1,15 @@
+<% blog.comment.forEach(function(comment){ %>
+    <span><%= comment.name.username %>: </span>
+    <span><%= comment.body %> - </span>
+    <span><%= comment.created.toDateString() %></span>
+    <% if(!currentUser) { %>
+        <div></div>
+    <% } else if(comment.name.id.equals(currentUser.id)) { %>
+        <form class="d-inline float-right"
+              action="/blog/<%= comment._id %>/comment?_method=DELETE" 
+              method="post">
+            <input type="submit" value="Delete">
+        </form>
+    <% } %>
+    <hr>
+<% }); %>

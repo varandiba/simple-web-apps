@@ -1,0 +1,24 @@
+<% include ../partials/header.ejs %>
+
+<img class="w-100" src="<%= blog.image %>" alt="">
+<h1 class="h1 text-center mt-4"><%= blog.title %></h1>
+<p class="text-center">Writen by: <%= blog.author.username %></p>
+<p><%- blog.body %></p>
+<hr>
+
+<% if(!currentUser) { %>
+    <div></div>
+<% } else if(blog.author.id.equals(currentUser.id)) { %>
+    <form method="POST" action="/blog/<%= blog.id %>/?_method=DELETE">
+        <input class="btn btn-danger btn-large float-left mr-3" type="submit" value="Delete">
+    </form>
+    <a class="btn btn-info btn-large inline float-none" href="/blog/<%= blog.id %>/edit">Edit</a>
+<% } %>
+
+<% include ../comment/new.ejs %>
+
+<hr>
+
+<% include ../comment/show.ejs %>
+
+<% include ../partials/footer.ejs %>

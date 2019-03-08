@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+
+<script src="/js/lib/tinymce/tinymce.js"></script>
+<script src="/js/tinymce.js"></script>
+<form action="/newblog" method="POST">
+    <input class="form-control mb-4" type="text" name="blog[title]" placeholder="Title">
+    <input class="form-control mb-4" type="text" name="blog[image]" placeholder="Image URL">
+    <textarea name="blog[body]" id="body-article" cols="50" rows="10"></textarea>
+    <input class="mt-5 btn btn-large btn-info" type="submit" value="Post">
+</form>
+
+<% include ../partials/footer.ejs %>

@@ -1,0 +1,12 @@
+<% include ../partials/header.ejs %>
+
+<script src="/js/lib/tinymce/tinymce.js"></script>
+<script src="/js/tinymce.js"></script>
+<form action="/blog/<%=blog._id%>?_method=PUT" method="POST">
+    <input class="form-control mb-4" type="text" name="blog[title]" value="<%= blog.title %>">
+    <input class="form-control mb-4" type="text" name="blog[image]" value="<%= blog.image %>">
+    <textarea name="blog[body]" id="body-article" cols="50" rows="10"><%= blog.body %></textarea>
+    <input class="mt-5 btn btn-primary btn-large" type="submit" value="Update">
+</form>
+
+<% include ../partials/footer.ejs %>
